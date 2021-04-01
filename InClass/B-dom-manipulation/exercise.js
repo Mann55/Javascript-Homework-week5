@@ -60,6 +60,8 @@ function changeColor() {
 }
 */
 /*
+
+
 Task 4
 ======
 
@@ -108,7 +110,7 @@ Also clear the text inside the input field
 
 document.querySelector("#addArticleBtn").addEventListener("click", addText);
 function addText() {
-    /*
+  /*
   const p = document.createElement("p");
   p.textContent = "Adding some text here";
   document.querySelector(".form-control").value =   p.textContent;
@@ -116,9 +118,9 @@ function addText() {
   */
 
   const p = document.createElement("p");
-  const input = document.querySelector('.form-control.addArticle');
+  const input = document.querySelector(".form-control.addArticle");
   p.textContent = input.value;
-  document.querySelector('#mainArticles').appendChild(p);
+  document.querySelector("#mainArticles").appendChild(p);
 
   // Also clear the text inside the input field
   input.value = " ";
@@ -135,12 +137,11 @@ The next color when you are in the last color of the array will be the first col
 
 let changeColorBtn = document.querySelector("#bgrChangeBtn");
 changeColorBtn.addEventListener("click", changeColor);
-let colors = ['blue', 'red', 'purple', 'orange', 'black'];
+let colors = ["blue", "red", "purple", "orange", "black"];
 
 function changeColor() {
-    const currentColor = document.body.style.backgroundColor
-    const indexCurrent = colors.findIndex(c => c === currentColor)
-    const nextColor = colors[indexCurrent + 1] || colors[0]
-    document.body.style.backgroundColor = nextColor
+  const currentColor = document.body.style.backgroundColor;
+  const indexCurrent = colors.findIndex((c) => c === currentColor);
+  const nextColor = colors[indexCurrent + 1] || colors[0];
+  document.body.style.backgroundColor = nextColor;
 }
-

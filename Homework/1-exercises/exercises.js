@@ -14,23 +14,21 @@
  * </div>
  */
 
- function exerciseOne(arrayOfPeople) {
+function exerciseOne(arrayOfPeople) {
   let content = document.querySelector("#content");
- 
+
   arrayOfPeople.forEach((item) => {
-  //  console.log(item.name, item.job);
+    //  debugger;
+    //  console.log(item.name, item.job);
     let h1 = document.createElement("h1");
     content.appendChild(h1);
-    h1.innerHTML  +=  item.name;
+    h1.innerHTML += item.name;
 
     let h2 = document.createElement("h2");
     content.appendChild(h2);
-    h2.innerHTML  +=  item.job;
- 
+    h2.innerHTML += item.job;
   });
 }
-
-
 
 /**
  *
@@ -47,9 +45,8 @@ function exerciseTwo(shopping) {
     //console.log(item);
     let li = document.createElement("li");
     ul.appendChild(li);
-    li.innerHTML +=  item;
+    li.innerHTML += item;
   });
-
 }
 
 /**
@@ -87,28 +84,42 @@ function exerciseTwo(shopping) {
 
 function exerciseThree(books) {
   //Write your code in here
-  //let ul = document.createElement("ul");
-    books.forEach((item) => {
-    //console.log(item);
-    let p = document.createElement("p");
-   // let li = document.createElement("li");
-    let content = document.querySelector("#content").appendChild(p);
-   // ul.appendChild(li);
-    content.innerHTML +=  item.title  + " - " + item.author + " "  ;
+  let h1 = document.createElement("h1");
+  h1.textContent = "BookList";
+  let content = document.querySelector("#content");
+  let ul = document.createElement("ul");
+  content.appendChild(h1);
+  content.appendChild(ul);
 
-   
-    
-    let image = document.createElement('img');
-    image.src= item.url;
-    content.appendChild(image);
-  
-    if(item.alreadyRead){
-        content.style.backgroundColor = "Green";
-    }else{
-      content.style.backgroundColor = "Red";
-    }
-});
+  let img1 = "./images/designeveryday.jpg";
+  let img2 = "./images/mosthuman.jpg";
+  let img3 = "./images/theprogramtic.jpg";
+  let imgs = [img1, img2, img3];
+
+  ul.style.listStyle = "none";
+  ul.style.display = "flex";
+  h1.style.marginLeft = "50px";
+  h1.style.marginBottom = "-20px";
+
+  books.forEach((book, index) => {
+    let p = document.createElement("p");
+    let li = document.createElement("li");
+
+    ul.appendChild(li);
+    li.appendChild(p);
+
+    p.textContent = `${book.title} - ${book.author}`;
+    li.style.backgroundColor = book.alreadyRead ? "green" : "red";
+
+    li.style.margin = "15px";
+    li.style.padding = "10px";
+    li.style.minWidth = "350px";
+    let img = document.createElement("img");
+    img.src = imgs[index];
+    li.appendChild(img);
+  });
 }
+
 //
 //
 //
@@ -122,7 +133,7 @@ function exerciseThree(books) {
 let people = [
   { name: "Chris", job: "Teacher" },
   { name: "Joanna", job: "Student" },
-  { name: "Boris", job: "Prime Minister" }
+  { name: "Boris", job: "Prime Minister" },
 ];
 
 exerciseOne(people);
@@ -136,23 +147,18 @@ const books = [
     title: "The Design of Everyday Things",
     author: "Don Norman",
     alreadyRead: false,
-    url: "./images/designeveryday.jpg"
-    
   },
-  
+
   {
     title: "The Most Human Human",
     author: "Brian Christian",
     alreadyRead: true,
-    url: "./images/mosthuman.jpg"
   },
   {
     title: "The Pragmatic Programmer",
     author: "Andrew Hunt",
     alreadyRead: true,
-    url: "./images/theprogramtic.jpg"
-  }
-  
+  },
 ];
 
 exerciseThree(books);
